@@ -1,0 +1,24 @@
+name: Self Hosted Runner Demo
+
+on:
+  push:
+
+jobs:
+  runner-test:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Runner Information
+        run: |
+          echo "===== Runner Information ====="
+          echo "User: $(whoami)"
+          echo "Hostname: $(hostname)"
+          echo "Current Directory:"
+          pwd
+          echo "Files:"
+          ls -la
+          echo "Operating System:"
+          cat /etc/os-release
